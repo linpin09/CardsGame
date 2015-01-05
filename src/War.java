@@ -7,10 +7,11 @@ public class War {
     protected static PlayerHand p1 = new PlayerHand();
     protected static PlayerHand p2 = new PlayerHand();
     public static boolean war = false;
-
+/*
     public static void main(String[] args) {
 
-        CardTableGUI.drawGUI();
+        //CardTableGUI.drawGUI();
+
         deckTest = new Deck();
         p1.setPlayerName("Foxsh");
         p2.setPlayerName("Kitty");
@@ -28,7 +29,7 @@ public class War {
         System.out.println(war);
         printWinner();
 
-    }
+    }*/
     private static void printWinner() {
         if (!p1.isEmpty()) {
             System.out.println("Winner is " + p1.getPlayerName());
