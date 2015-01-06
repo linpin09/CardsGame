@@ -24,8 +24,8 @@ public class CardTableGUI extends JApplet implements KeyListener, MouseListener 
     public void init() {
 
         img = getImage("table.png");
-        mainPanel = new ImagePanel(img, this.getWidth() / 2
-                - img.getWidth() / 2, this.getHeight() / 2 - img.getHeight() / 2);
+        mainPanel = new ImagePanel(img, this.getWidth() / 2 - img.getWidth() / 2,
+                this.getHeight() / 2 - img.getHeight() / 2);
         mainPanel.setBackground(new Color(0, 100, 0)); //Green
 
         this.setContentPane(mainPanel);
