@@ -1,27 +1,53 @@
 /**
  * Created by Lindley on 1/1/2015.
  */
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.awt.peer.MouseInfoPeer;
+import java.io.IOException;
+import java.net.URL;
+import java.awt.Image;
 
 
 public class CardTableGUI extends JApplet implements KeyListener, MouseListener {
 
-    Image img;
+    BufferedImage img;
+    ImagePanel mainPanel;
+
 
     public void init() {
-        Container c = this.getContentPane();
-        //c.add();
-        c.setBackground(new Color(0,100,0));
-        this.setContentPane(c);
+
+        img = getImage("table.png");
+        mainPanel = new ImagePanel(img, this.getWidth() / 2
+                - img.getWidth() / 2, this.getHeight() / 2 - img.getHeight() / 2);
+        mainPanel.setBackground(new Color(0, 100, 0)); //Green
+
+        this.setContentPane(mainPanel);
         this.setSize(800, 800);
         addMouseListener(this);
         addKeyListener(this);
+        Graphics g = this.getGraphics();
+        //g.drawImage(img, this.getWidth(), this.getHeight() , null);
+        //repaint();
+
+    }
+    public BufferedImage getImage(String name){
+        BufferedImage img = null;
+
+        try {
+            URL imgUrl = getClass().getClassLoader().getResource("resources/" + name);
+            ImageIcon icon = new ImageIcon(imgUrl);
+            img = ImageIO.read(imgUrl);//icon.getImage());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return img;
     }
 
 
